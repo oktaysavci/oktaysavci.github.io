@@ -1,8 +1,9 @@
 <update>
     <item>
-        <version>20</version>
-        <description>
-        2.0 sürümüne güncellendi. </description>
+        <version>19</version>
+        <description>Yeni özellikler mevcut: 
+        - Dosyaları şifrele ve şifreyi çöz.
+        - </description>
         <updateUrl>https://svfilemanager.tr.uptodown.com/android</updateUrl>
         <!--  Diğer güncelleme detayları buraya eklenebilir  -->
     </item>
