@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SV File Manager</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; 
+            color: #ffffff; 
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #0db9d7;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #1e1e1e; 
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        footer {
+            background-color: #0d0d0d;
+            color: #0db9d7; 
+            padding: 1em;
+            text-align: center;
+        }
+
+       
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #2c2c2c; 
+            color: #ffffff; 
+        }
+
+        .submit-button {
+            padding: 10px;
+            background-color: #0077b6; 
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #005f73; 
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>SV File Manager - İletişim</h1>
+    </header>
+
+    <section>
+        <form class="contact-form" onsubmit="submitForm(event)">
+            <input type="text" id="fullName" class="form-input" placeholder="Ad Soyad" required>
+            <textarea id="message" class="form-input" placeholder="Mesajınız" rows="5" required></textarea>
+            <button type="submit" class="submit-button">Gönder</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 SV File Manager. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+
+            // Form verilerini al
+            const fullName = document.getElementById('fullName').value;
+            const message = document.getElementById('message').value;
+
+          
+            const dataToWrite = `fullName=${encodeURIComponent(fullName)}&message=${encodeURIComponent(message)}`;
+            
+            fetch('writeToFile.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: dataToWrite,
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                alert('Mesaj başarıyla kaydedildi.');
+            })
+            .catch(error => console.error('Hata:', error));
+        }
+    </script>
+
+</body>
+</html>
