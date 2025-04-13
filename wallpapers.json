@@ -1,14 +1,4 @@
 [
-  {
-    "url": "https://oktaysavci.github.io/wall1.jpg",
-    "quality": "720p"
-  },
-  {
-    "url": "https://images.pexels.com/photos/1270184/pexels-photo-1270184.jpeg",
-    "quality": "1080p"
-  },
-  {
-    "url": "https://oktaysavci.github.io/wall2.jpg",
-    "quality": "720p"
-  }
+  { "url": "https://oktaysavci.github.io/wall1.jpg" },
+  { "url": "https://oktaysavci.github.io/wall2.jpg" }
 ]
